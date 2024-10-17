@@ -1,7 +1,7 @@
 export class Brand {
-    id: string,
-    name: string;
+  id: string;
+  name: string;
 
-    createdAt: number;
-    updatedAt?:number;
+  createdAt: number;
+  updatedAt?: number;
 }

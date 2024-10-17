@@ -76,4 +76,8 @@ export class CarsService {
     this.cars = this.cars.filter((car) => car.id !== id);
     //?Its not necessary put a return due, nest just send and undefined
   }
+
+  public fillCarWithSeedData(cars: Car[]) {
+    this.cars = cars;
+  }
 }
