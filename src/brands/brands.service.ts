@@ -1,9 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { Brand } from './entities/brand.entity';
 import { v4 as uuid } from 'uuid';
-import { NotFoundError } from 'rxjs';
 
 @Injectable()
 export class BrandsService {
@@ -30,7 +29,8 @@ export class BrandsService {
 
   findOne(id: string) {
     const brand = this.brands.find((brand) => brand.id === id);
-    if (!brand) throw new NotFoundError(`brand with id ${id} not found`);
+    if (!brand)
+      throw new ForbiddenException(`the ${id} is not in the database`);
     return brand;
   }
 
